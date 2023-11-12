@@ -2,10 +2,7 @@
 import pygame
 from configuration import *
 from habit import *
-from textbox import *
-import json
-
-
+# from textbox import *
 import json
 pygame.init()
 

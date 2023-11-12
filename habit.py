@@ -135,7 +135,8 @@ class HabitManager:
                 self.update_monthly_streak(habit, today)
 
     def update_daily_streak(self, habit, today):
-        if habit.last_update_date == today - datetime.timedelta(days=1):
+        if habit.last_update_date == today:
+        # - datetime.timedelta(days=1):
             habit.streak += 1  # increase the streak if habit is updated daily
         else:
             habit.streak = 0  # reset the streak if not updated daily
@@ -174,7 +175,7 @@ class HabitManager:
         if habit_to_remove:
             self.habits.remove(habit_to_remove)
             # Optionally, you may want to save the habits after deleting:
-            # self.save_habits()
+            self.save_habits()
 
     def get_completed_habits(self):
         try:
