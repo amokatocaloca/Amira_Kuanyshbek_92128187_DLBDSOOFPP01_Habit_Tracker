@@ -6,7 +6,7 @@ Welcome to the Habit Tracker, a Python-based application that transforms the rou
 
 -  Pixel Art Visuals : Thanks to LimeZu's free pixel art package (https://limezu.itch.io/moderninteriors?download), the game boasts a visually rich environment.
 -  Leveraging Pygame : Utilizing Pygame's comprehensive modules, we've crafted an interactive 2D game world, featuring a detailed map, interactive objects, player movement, and responsive event mechanics.
--  Detailed Analytics : Track, analyze, and gain insights on your habits. Our application monitors streaks, categorizes habits by type and frequency, and maintains historical data for trend analysis.
+-  Detailed Analytics : Track, analyze, and gain insights on your habits. My application monitors streaks, categorizes habits by type and frequency, and maintains historical data for trend analysis.
 
 ## User Interaction and Game Mechanics
 
@@ -24,7 +24,11 @@ Welcome to the Habit Tracker, a Python-based application that transforms the rou
 
 ## Habit Creation and Management Pipeline
 
--  Initiating the Application : Run `main.py` to start the game, placing the player in the lower right corner of the map. Use WASD keys for navigation.
+-  Initiating the Application : Download all application files, including the assets, and run `main.py` to start the game the player in the lower right corner of the map. Use WASD keys for navigation.
+- You should have Pygame installed on your computer, just use this command:
+
+``` pip install pygame ```
+
 -  Creating a Habit :
   1. Approach the  Journal Table  and press "K" to trigger an interaction prompt. Return to the python console and type in "yes" for the habit creation and management menu to open. 
   2. Follow prompts in the CLI to choose the option from the menu, (f.e. type in 1 to choose the first option "1. Create habit"). You can manually enter the habit's name, choose its type (e.g., exercise, reading), select periodicity (daily, weekly, monthly), and set a completion goal. The goal will be the number of dailys, monthlys, or weeklys that you need to completed for the habit depending on the periodicity chosen. 
