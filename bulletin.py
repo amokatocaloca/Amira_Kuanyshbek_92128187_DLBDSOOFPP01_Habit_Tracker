@@ -25,16 +25,13 @@ class BulletinBoard(pygame.sprite.Sprite):
         while True:
             print("Choose action:")
             print("1. Update habit")
-            # print("2. Save habits")
             print("2. Calculate Streaks")
             print("3. Exit")
             action = input("Enter action number: ")
 
             if action == '1':
                 self.update_habit(player)
-            # elif action == '2':
-            #     self.habit_manager.save_habits()
-                # print("Habits saved successfully.")
+      
             elif action == '2':
                 self.calculate_streaks(player)  # Add a function to calculate streaks
             elif action == '3':
@@ -67,8 +64,12 @@ class BulletinBoard(pygame.sprite.Sprite):
 
         progress = int(input(f"Enter progress made on {selected_habit.name}: "))
         self.habit_manager.update_habit(selected_habit.name, progress)
-        print(f"Habit {selected_habit.name} updated.")
-        self.habit_manager.save_habits()
+        if selected_habit.is_expired:
+          print(f"Habit {habit.name} has expired!")
+          self.habit_manager.delete_habit(selected_habit.name)
+        else:
+         print(f"Habit {selected_habit.name} updated.")
+         self.habit_manager.save_habits()
 
         # Check if the habit is completed after the update
         if selected_habit.is_completed():

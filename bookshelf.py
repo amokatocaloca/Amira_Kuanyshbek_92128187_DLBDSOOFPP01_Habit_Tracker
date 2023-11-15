@@ -10,7 +10,6 @@ pygame.init()
 
 class Bookshelf(pygame.sprite.Sprite):
     def __init__(self, x, y, habit_manager, room):
-        # self.completed_habits = []
         self.room=room
         self.sprite_layer = bookshelf_layer
         self.groups = self.room.all_sprites
@@ -42,7 +41,6 @@ class Bookshelf(pygame.sprite.Sprite):
         print("Interacting with Bookshelf")
         while True:
             print("Choose action:")
-            # print("1. Organize habits into books")
             print("1. Display books on shelf")
             print("2. Read a book")
             print("3. Organize habits into books")
@@ -50,9 +48,7 @@ class Bookshelf(pygame.sprite.Sprite):
             action = input("Enter action number: ")
 
             if action == '1':
-            #     self.organize_habits_into_books()
-            #     print("Habits have been organized into books.")
-            # elif action == '2':
+     
                 self.display_books_on_shelf()
             elif action == '2':
                  book_number = int(input("Enter the number of the book you want to read: "))
@@ -118,6 +114,8 @@ class Bookshelf(pygame.sprite.Sprite):
             print(f"Habit {idx}:")
             print(f"Name: {habit['name']}")
             print(f"Start Date: {habit['start_date']}")
+            print(f"End Date: {habit['end_date']}")
+            print(f"Periodicity: {habit['periodicity']}")
             print(f"Streak: {habit['streak']}")
             print(f"Type: {habit['type_']}")
 

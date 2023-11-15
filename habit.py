@@ -13,11 +13,10 @@ class Habit:
         self.start_date = start_date
         
         # Add initialization for the below attributes
-        self.progress = 0  # Assuming initial progress is 0
-        self.streak = 0  # Assuming initial streak is 0
-        self.last_update_date = start_date  # or whatever logic you'd like
-        self.end_date = start_date + datetime.timedelta(days=duration)  # if the duration is meant to be in days
-
+        self.progress = 0  # initial progress is 0
+        self.streak = 0  # initial streak is 0
+        self.last_update_date = start_date
+        self.end_date = start_date + datetime.timedelta(days=duration)
 
     def update_progress(self, value):
         today = datetime.date.today()
@@ -108,12 +107,11 @@ class HabitManager:
 
                 # Check if the habit is expired
                 if habit.is_expired():
-                    print(f"Habit {habit.name} has expired!")
+                    self.delete_habit(habit)
                     # handle expired habit
 
                 # Check if the habit's goal is completed
                 elif habit.is_completed():
-                    print(f"Congratulations! You have completed the habit: {habit.name} for today!")
                     # handle completed habit
 
                     # Use the existing method to save and remove the completed habit
@@ -136,7 +134,6 @@ class HabitManager:
 
     def update_daily_streak(self, habit, today):
         if habit.last_update_date == today:
-        # - datetime.timedelta(days=1):
             habit.streak += 1  # increase the streak if habit is updated daily
         else:
             habit.streak = 0  # reset the streak if not updated daily
@@ -174,7 +171,6 @@ class HabitManager:
         habit_to_remove = next((habit for habit in self.habits if habit.name == habit_name), None)
         if habit_to_remove:
             self.habits.remove(habit_to_remove)
-            # Optionally, you may want to save the habits after deleting:
             self.save_habits()
 
     def get_completed_habits(self):
@@ -188,7 +184,7 @@ class HabitManager:
     def save_and_remove_completed_habits(self, completed_habits):
         # Load current completed habits
         current_completed_habits = self.get_completed_habits()
-        # completed_habits = []
+
         # Filter out habits that are completed
         new_completed_habits = [habit for habit in self.habits if habit.is_completed()]
 

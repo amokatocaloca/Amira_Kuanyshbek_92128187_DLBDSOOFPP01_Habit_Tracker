@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
 
    def input(self):
        keys = pygame.key.get_pressed()
-       if keys[pygame.K_k]:  # Suppose 'K' is the interaction key
+       if keys[pygame.K_k]:  # 'K' is the interaction key
            self.interact_with_objects_nearby()
     
    def move(self):

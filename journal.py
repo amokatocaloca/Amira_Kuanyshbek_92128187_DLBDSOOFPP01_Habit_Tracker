@@ -123,8 +123,7 @@ class Journal(pygame.sprite.Sprite):
         print("---")
 
    def display_habits_grouped_by_periodicity(self):
-        # Assuming you might want to define periodicity based on habit duration.
-        # Adjust this to fit your game's actual logic for habit periodicity.
+      
         daily_habits = [habit for habit in self.habit_manager.get_habits() if habit.duration <= 7]
         weekly_habits = [habit for habit in self.habit_manager.get_habits() if 7 < habit.duration <= 30]
         monthly_habits = [habit for habit in self.habit_manager.get_habits() if habit.duration > 30]

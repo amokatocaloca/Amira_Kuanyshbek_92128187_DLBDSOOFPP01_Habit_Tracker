@@ -10,8 +10,6 @@ from journal import *
 from bulletin import *
 from bookshelf import * 
 
-# In your main.py or equivalent
-
 
 pygame.init()
 
@@ -38,7 +36,7 @@ class Room:
         self.player_spritesheet = Spritesheet('assets/Interiors/48x48/merchant.png')
         self.running = True
         self.habit_manager = HabitManager()
-        self.interactive_objects = []  # You'll need to populate this with your interactive objects
+        self.interactive_objects = []  
         # Inside __init__ method of Room class
         self.interacting_with_journal = False
 
@@ -75,10 +73,7 @@ class Room:
       for event in pygame.event.get():
          if event.type == pygame.QUIT:
                self.running = False
-         # elif event.type == pygame.KEYDOWN:  # New condition to check for key press events
-         #       if event.key == pygame.K_k:  # Check if the pressed key is 'K'6
-
-         #          self.check_interaction()  # Now call the interaction check here
+      
        
     def check_interaction(self):
          if not self.player:
@@ -96,7 +91,7 @@ class Room:
         self.all_sprites.draw(self.screen)
         self.clock.tick(FPS)
         pygame.display.update()
-        # If HabitManager's draw method is implemented, you may call it here with the appropriate parameters
+        # Displaying the objects on the map
 
     def main(self):
      while self.running:
